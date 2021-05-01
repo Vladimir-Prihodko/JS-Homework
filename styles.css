@@ -1,0 +1,58 @@
+/* Reseting default styles */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Making form and styling its elements */
+
+.form {
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  margin: 150px auto 100px;
+}
+
+.form__input {
+  border: 2px solid #000;
+  padding: 2px 0 2px 5px;
+  border-radius: 25px;
+}
+
+.form__input:focus {
+  outline: none;
+}
+
+.form__btn {
+  padding: 2px 10px;
+  margin: 0 5px;
+  border: 1px solid #000;
+}
+
+.form__btn + .form__btn {
+  margin: 0;
+}
+
+.add {
+  background-color: lightgreen;
+}
+
+.delete {
+  background-color: lightcoral;
+}
+
+/* Styling element where new HTML elements will be added */
+
+.show {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.show__inner {
+  font-weight: 900;
+}
