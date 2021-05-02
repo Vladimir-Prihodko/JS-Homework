@@ -12,41 +12,29 @@ const show = document.getElementById("show");
 const addItemToArray = function () {
   const input = document.getElementById("input");
 
-  // Checking if input is empty
   if (input.value.length === 0) {
     alert("Input cannot be empty. Please insert at least 1 character.");
     return;
-  }
-  // Checking if array is no longer than 26 elements as per assignment
-  else if (array.length === 26) {
+  } else if (array.length === 26) {
     alert("Only 26 items are allowed.");
     return;
-  }
-  // Pushing value of input in the array and assigning it to the localStorage
-  else {
+  } else {
     array.push(input.value);
     setValueOfStorage();
   }
 
-  // Creating new element
   createNewElement();
 
-  // Resetting the value of the input
   input.value = "";
 };
 
 // Function that creates new element
+
 const createNewElement = function () {
-  // Creating element and putting it in the variable
   const newElement = document.createElement("div");
-
-  // Appending it to the existing element in HTML document
   show.appendChild(newElement);
-
-  // Adding class to our created element
   show.lastChild.setAttribute("class", "show__inner");
 
-  // Iterating through values in array and putting theirs content in elements
   array.forEach((item) => {
     show.lastChild.innerHTML = item;
   });
@@ -69,32 +57,24 @@ const getDataFromLocalStorage = function () {
 
 // Rendering data from local storage
 const renderDataFromLocalStorage = function () {
-  // Assigning existing values from the local storage to array values
   array = getDataFromLocalStorage();
 
-  // Iterating through values of the local storage
   getDataFromLocalStorage().forEach((item) => {
-    // Creating new element
     const newElement = document.createElement("div");
-
-    // Assigning content that equals to the value from the localStorage
     show.appendChild(newElement).innerHTML = item;
 
-    // If element created, assign class to this element
     if (show.lastChild) {
       show.lastChild.setAttribute("class", "show__inner");
     }
   });
 };
 
-// Deleting element from array
+// Deleting last element from array
 const deleteElementFromArray = function () {
-  // Deleting created element from HTML and deleting last element of array
   if (show.lastChild) {
     array.pop();
     deleteAnElement();
     setValueOfStorage();
-    // If array is empty alert a message
     if (array.length === 0) {
       alert("Array is empty!");
     }
